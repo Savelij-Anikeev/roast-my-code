@@ -1,0 +1,5 @@
+/*/node_modules
+/nginx/ssl
+.env
+.idea
+.vscode
