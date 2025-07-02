@@ -1,0 +1,6 @@
+model Balance {
+  userId String @id
+  amount Int
+
+  user User @relation(fields: [userId], references: [id])
+}

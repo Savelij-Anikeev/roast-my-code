@@ -11,11 +11,11 @@ export type Config = {
 
 const config: Config = {
 // @ts-ignore
-	nodeEnv: process.env.NODE_ENV || ENVIRONMENT.DEVELOPMENT,
-	host: process.env.HOST || '0.0.0.0',
+	nodeEnv: import.meta.env.NODE_ENV || ENVIRONMENT.DEVELOPMENT,
+	host: import.meta.env.VITE_HOST || '0.0.0.0',
 	backend: {
-		httpApiUrl: process.env.VITE_API_URL || 'http://localhost/api',
-		wsApiUrl: process.env.VITE_WS_URL || 'ws://localhost/ws'
+		httpApiUrl: import.meta.env.VITE_API_URL || 'https://localhost/api',
+		wsApiUrl: import.meta.env.VITE_WS_URL || 'wss://localhost/ws'
 	}
 } as const;
 

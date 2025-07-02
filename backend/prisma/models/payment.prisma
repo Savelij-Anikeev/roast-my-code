@@ -1,0 +1,13 @@
+model Payment {
+  id String @id @default(uuid(4))
+  amount Decimal @db.Money
+  correctionId String
+  userId String
+  typeId Int
+  statusId Int
+  createdAt DateTime
+
+  // foreign keys
+  user User @relation(fields: [userId], references: [id])
+  payment Payment @relation(fields: [correctionId], references: [id])
+}

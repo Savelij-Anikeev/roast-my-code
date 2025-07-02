@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit';
-import config from '@/config';
+import config from '@/core/config';
 
 import {usersSlice} from './slices/users';
 

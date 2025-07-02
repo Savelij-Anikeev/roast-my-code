@@ -12,7 +12,7 @@ services:
       - NODE_ENV=development
       - VITE_API_URL=${VITE_API_URL}
       - VITE_WS_URL=${VITE_WS_URL}
-      - HOST=${HOST}
+      - VITE_HOST=${HOST}
     depends_on:
       - backend
 #    command: sh -c "wait-for-it backend:3000 -t 60 -- npm run dev"
@@ -21,6 +21,8 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
     volumes:
       - ./backend:/app
       - /app/node_modules
@@ -32,6 +34,7 @@ services:
       - REDIS_HOST=${REDIS_HOST}
       - REDIS_PORT=${REDIS_PORT}
       - REDIS_PASSWORD=${REDIS_PASSWORD}
+      - REDIS_USER=${REDIS_USER}
     depends_on:
       - postgres
       - redis
@@ -39,7 +42,7 @@ services:
   nginx:
     build:
       context: ./nginx
-      dockerfile: nginx/Dockerfile.dev
+      dockerfile: Dockerfile.dev
       args:
         - NGINX_ENV=dev
     ports:

@@ -1,4 +1,4 @@
-import config from "@/config";
+import config from "@/core/config";
 import {ENVIRONMENT} from "@/types/shared";
 
 export const getErrorMsg = (err: unknown) => {

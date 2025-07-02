@@ -1,0 +1,10 @@
+model ApiToken {
+  id String @id @default(uuid(7))
+  userId String
+  createdAt DateTime
+  expiresAt DateTime
+  deletedAt DateTime
+  updatedAt DateTime
+
+  user User @relation(fields: [userId], references: [id])
+}
